@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:17'
+    environment:
+      - 'POSTGRES_DB=webshop'
+      - 'POSTGRES_USER=webshop'
+      - 'POSTGRES_PASSWORD=webshop'
+    ports:
+      - '5432'

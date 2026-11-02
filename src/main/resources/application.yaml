@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: web-shop-mcp-example
+  data:
+    web:
+      pageable:
+        max-page-size: 100
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  ai:
+    mcp:
+      server:
+        name: web-shop-mcp
+        version: 1.0.0
+        type: sync
+        protocol: streamable
+        instructions: >
+          Web shop product catalog. Use these tools to list, look up, create,
+          update and delete products. Prices are in EUR.
+        streamable-http:
+          mcp-endpoint: /mcp
