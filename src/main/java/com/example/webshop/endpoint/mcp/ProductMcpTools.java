@@ -9,43 +9,37 @@ import com.example.webshop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class ProductMcpTools {
 
+    private static final List<String> SORTABLE = List.of("id", "name", "price", "active", "createdAt", "updatedAt");
+
     private final ProductService productService;
+    private final McpSortHelper sortHelper;
+    private final McpPageHelper pageHelper;
 
     @McpTool(name = "list_products",
             description = """
-                    Search the web shop catalog. All filters are optional and combined with AND. \
-                    Results are paged: the response includes content plus page, size, totalElements and totalPages; \
-                    request further pages with the page parameter. Prices are in EUR.""",
+                    Search the web shop catalog. Takes three optional objects: filter (all fields optional, \
+                    combined with AND), sort (list of {property, direction} in priority order, so each field can \
+                    have its own direction; default id ASC) and pagination ({page, size}, default page 0, size 20, \
+                    max size 100). The response includes content plus page, size, totalElements, totalPages, \
+                    first and last; request further pages with pagination.page. Prices are in EUR.""",
             annotations = @McpTool.McpAnnotations(readOnlyHint = true))
     public PageResponse<ProductResponse> listProducts(
-            @McpToolParam(description = "Free text, case-insensitive, matched against name or description", required = false) String query,
-            @McpToolParam(description = "Case-insensitive substring of the product name", required = false) String name,
-            @McpToolParam(description = "Minimum price in EUR (inclusive)", required = false) BigDecimal minPrice,
-            @McpToolParam(description = "Maximum price in EUR (inclusive)", required = false) BigDecimal maxPrice,
-            @McpToolParam(description = "true = only active products, false = only inactive, omit for both", required = false) Boolean active,
-            @McpToolParam(description = "Zero-based page index, default 0", required = false) Integer page,
-            @McpToolParam(description = "Page size, default 20, max 100", required = false) Integer size,
-            @McpToolParam(description = "Sort property: id, name, price, createdAt or updatedAt. Default id", required = false) String sortBy,
-            @McpToolParam(description = "ASC or DESC, default ASC", required = false) String sortDirection) {
-        ProductFilter filter = new ProductFilter(query, name, minPrice, maxPrice, active, null, null);
-        Sort sort = Sort.by(
-                sortDirection == null ? Sort.Direction.ASC : Sort.Direction.fromString(sortDirection),
-                sortBy == null || sortBy.isBlank() ? "id" : sortBy);
-        PageRequest pageable = PageRequest.of(
-                page == null ? 0 : page,
-                size == null ? 20 : size,
-                sort);
-        return McpToolErrors.translating(() -> productService.findAll(filter, pageable));
+            @McpToolParam(description = "Filters, all optional and combined with AND", required = false) ProductListFilter filter,
+            @McpToolParam(description = "Sort orders in priority order, each with its own direction. "
+                    + "property: one of id, name, price, active, createdAt, updatedAt. Default id ASC", required = false) List<SortOrder> sort,
+            @McpToolParam(description = "Zero-based page and page size (1-100). Default page 0, size 20", required = false) Pagination pagination) {
+        return McpToolErrors.translating(() -> productService.findAll(
+                filter == null ? ProductFilter.empty() : filter.toProductFilter(),
+                pageHelper.pageable(pagination, sortHelper.sort(sort, SORTABLE, "id"))));
     }
 
     @McpTool(name = "get_product",

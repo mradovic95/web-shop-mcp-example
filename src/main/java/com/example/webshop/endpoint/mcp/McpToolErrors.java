@@ -7,12 +7,12 @@ import org.springframework.data.core.PropertyReferenceException;
 
 import java.util.function.Supplier;
 
-final class McpToolErrors {
+public final class McpToolErrors {
 
     private McpToolErrors() {
     }
 
-    static <T> T translating(Supplier<T> call) {
+    public static <T> T translating(Supplier<T> call) {
         try {
             return call.get();
         } catch (ProductException e) {
@@ -24,7 +24,7 @@ final class McpToolErrors {
         }
     }
 
-    static IllegalArgumentException translate(ProductException e) {
+    public static IllegalArgumentException translate(ProductException e) {
         String params = e.getParams().isEmpty() ? "" : " " + e.getParams();
         return new IllegalArgumentException(e.getErrorCode() + ": " + e.getMessage() + params);
     }

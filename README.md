@@ -58,13 +58,13 @@ Errors are returned as RFC 9457 `ProblemDetail` (404 not found, 400 validation).
 
 Streamable HTTP transport. Tools:
 
-| Tool             | Description                                   |
-|------------------|-----------------------------------------------|
-| `list_products`  | List all products (read-only)                 |
-| `get_product`    | Get a product by id (read-only)               |
-| `create_product` | Create a product                              |
-| `update_product` | Replace all fields of a product               |
-| `delete_product` | Delete a product (destructive)                |
+| Tool             | Description                                                              |
+|------------------|--------------------------------------------------------------------------|
+| `list_products`  | Search products with filter, multi-field sort and pagination (read-only) |
+| `get_product`    | Get a product by id (read-only)                                          |
+| `create_product` | Create a product                                                         |
+| `update_product` | Replace all fields of a product                                          |
+| `delete_product` | Delete a product (destructive)                                           |
 
 Connect Claude Code:
 
