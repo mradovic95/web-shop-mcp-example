@@ -35,3 +35,6 @@ build/
 
 ### Maven build output created with unresolved property name ###
 /${project.build.directory}/
+
+### Local OAuth2 signing key ###
+.data/

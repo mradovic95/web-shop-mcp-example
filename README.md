@@ -66,7 +66,23 @@ Streamable HTTP transport. Tools:
 | `update_product` | Replace all fields of a product               |
 | `delete_product` | Delete a product (destructive)                |
 
-Connect Claude Code:
+## MCP OAuth
+
+`/mcp` requires an OAuth 2.1 bearer token issued by the embedded Spring Authorization Server
+(`spring-ai-community` `mcp-authorization-server`): dynamic client registration, PKCE, `aud` = `http://localhost:8080/mcp`.
+REST `/api/**` stays open.
+
+- `GET /mcp` without a token → `401` + `WWW-Authenticate: Bearer resource_metadata=".../.well-known/oauth-protected-resource/mcp"`
+- `/.well-known/oauth-protected-resource/mcp`, `/.well-known/oauth-authorization-server`
+- `/oauth2/register`, `/oauth2/authorize`, `/oauth2/token`, `/oauth2/jwks`
+- Browser login: form login, demo user `user` / `password` (table `user_table`)
+- Clients, authorizations and consents live in `oauth2_*` tables (Liquibase changelog in `db/changelog`)
+- Access token: JWT, 5 min. Refresh token: 60 min, issued to public clients too (MCP clients register with
+  `token_endpoint_auth_method=none`), rotated on every use — a reused refresh token fails with `invalid_grant`
+- Signing key is generated on first start into `.data/oauth2-jwk.json` (gitignored), so tokens survive restarts;
+  delete the file to rotate the key and invalidate all tokens
+
+Connect Claude Code (then run `/mcp` and authenticate):
 
 ```bash
 claude mcp add --transport http web-shop http://localhost:8080/mcp

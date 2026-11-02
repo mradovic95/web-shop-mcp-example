@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>25</java.version>
 		<spring-ai.version>2.0.2</spring-ai.version>
+		<mcp-security.version>0.1.14</mcp-security.version>
 		<maven.compiler.source>25</maven.compiler.source>
 		<maven.compiler.target>25</maven.compiler.target>
 	</properties>
@@ -52,6 +53,25 @@
 		<dependency>
 			<groupId>org.springframework.ai</groupId>
 			<artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-oauth2-authorization-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-oauth2-resource-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springaicommunity</groupId>
+			<artifactId>mcp-authorization-server</artifactId>
+			<version>${mcp-security.version}</version>
+		</dependency>
+		<dependency>
+			<!-- Boot 4 no longer auto-configures Liquibase just because liquibase-core
+			     is on the classpath — the starter is required -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-liquibase</artifactId>
 		</dependency>
 
 		<dependency>

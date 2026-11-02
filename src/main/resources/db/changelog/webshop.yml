@@ -1,0 +1,12 @@
+databaseChangeLog:
+
+  - include:
+      file: db/changelog/webshop-001-product.yml
+  - include:
+      file: db/changelog/webshop-002-user.yml
+  - include:
+      file: db/changelog/webshop-003-oauth2-registered-client.yml
+  - include:
+      file: db/changelog/webshop-004-oauth2-authorization.yml
+  - include:
+      file: db/changelog/webshop-005-oauth2-authorization-consent.yml

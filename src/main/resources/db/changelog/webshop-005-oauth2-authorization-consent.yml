@@ -1,0 +1,28 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: webshop-005-oauth2-authorization-consent
+      author: web-shop
+      changes:
+        - createTable:
+            tableName: oauth2_authorization_consent
+            columns:
+              - column:
+                  name: registered_client_id
+                  type: varchar(100)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_oauth2_authorization_consent
+                    nullable: false
+              - column:
+                  name: principal_name
+                  type: varchar(200)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_oauth2_authorization_consent
+                    nullable: false
+              - column:
+                  name: authorities
+                  type: varchar(1000)
+                  constraints:
+                    nullable: false

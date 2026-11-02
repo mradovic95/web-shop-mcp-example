@@ -1,0 +1,37 @@
+package com.example.webshop.config;
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
+import org.springframework.security.oauth2.core.OAuth2ErrorCodes;
+import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
+import org.springframework.security.oauth2.server.authorization.authentication.OAuth2ClientAuthenticationToken;
+import org.springframework.security.web.authentication.AuthenticationConverter;
+import org.springframework.util.StringUtils;
+
+import java.util.Map;
+
+public class PublicClientRefreshTokenAuthenticationConverter implements AuthenticationConverter {
+
+    @Override
+    public Authentication convert(HttpServletRequest request) {
+        if (!AuthorizationGrantType.REFRESH_TOKEN.getValue().equals(request.getParameter(OAuth2ParameterNames.GRANT_TYPE))
+                || request.getHeader(HttpHeaders.AUTHORIZATION) != null
+                || request.getParameter(OAuth2ParameterNames.CLIENT_SECRET) != null
+                || request.getParameter(OAuth2ParameterNames.CLIENT_ASSERTION) != null) {
+            return null;
+        }
+        String[] clientIds = request.getParameterValues(OAuth2ParameterNames.CLIENT_ID);
+        if (clientIds == null) {
+            return null;
+        }
+        if (clientIds.length != 1 || !StringUtils.hasText(clientIds[0])) {
+            throw new OAuth2AuthenticationException(OAuth2ErrorCodes.INVALID_REQUEST);
+        }
+        return new OAuth2ClientAuthenticationToken(clientIds[0], ClientAuthenticationMethod.NONE, null,
+                Map.of(OAuth2ParameterNames.GRANT_TYPE, AuthorizationGrantType.REFRESH_TOKEN.getValue()));
+    }
+}
