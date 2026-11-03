@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-seed-products
+      author: webshop
+      changes:
+        - loadData:
+            tableName: product
+            file: db/changelog/data/products.csv
+            separator: ;
+            columns:
+              - column:
+                  name: name
+                  type: STRING
+              - column:
+                  name: description
+                  type: STRING
+              - column:
+                  name: price
+                  type: NUMERIC
+              - column:
+                  name: active
+                  type: BOOLEAN

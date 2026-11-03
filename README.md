@@ -18,9 +18,11 @@ com.example.webshop
 ├── service/         Business logic (shared)           ProductService
 ├── exception/       Domain exceptions
 ├── endpoint/rest/   REST controller + error handling  ProductRestController
-├── endpoint/mcp/    MCP tools for agents              ProductMcpTools
-└── config/          Sample data seeding               DataSeeder
+└── endpoint/mcp/    MCP tools for agents              ProductMcpTools
 ```
+
+The database schema is managed by Liquibase (`src/main/resources/db/changelog`);
+Hibernate only validates it (`ddl-auto: validate`).
 
 ```
 REST client ──> ProductRestController ─┐
@@ -38,7 +40,22 @@ Requires JDK 25 (`sdk env` picks it up from `.sdkmanrc`) and Docker.
 
 Spring Boot's docker compose support starts PostgreSQL from `compose.yaml` automatically
 (dev-time only — when running the packaged jar, configure `spring.datasource.*` yourself).
-Three sample products are seeded on first start.
+
+`spring-boot:run` activates the `dev` profile, which enables the Liquibase `dev` context and
+loads 20 sample products (`db/changelog/data/products.csv`). Without the `dev` profile only the
+schema is created.
+
+If you ran an older version of this project whose schema was created by Hibernate, reset the
+database once so Liquibase can create it: `docker compose down`.
+
+## Tests
+
+```bash
+./mvnw test
+```
+
+Integration tests start PostgreSQL with Testcontainers, so Docker must be running. They connect a real MCP client over Streamable HTTP; see
+[docs/TESTING-MCP.md](docs/TESTING-MCP.md) for the testing strategy.
 
 ## REST API — `/api/products`
 

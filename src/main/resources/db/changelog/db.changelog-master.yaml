@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - include:
+      file: changes/001-create-product-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/002-seed-products.yaml
+      relativeToChangelogFile: true
+      context: dev
