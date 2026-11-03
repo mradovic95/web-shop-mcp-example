@@ -51,6 +51,10 @@ public class McpTestHelper {
         }
     }
 
+    public McpSyncClient client() {
+        return client;
+    }
+
     public InitializeResult initializeResult() {
         return initializeResult;
     }
