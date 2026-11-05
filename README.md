@@ -4,8 +4,11 @@ Example web shop that exposes the same product management functionality through
 **REST** (for classic clients) and **MCP** (for AI agents). Both endpoints delegate
 to a single `ProductService`, so business rules and validation live in one place.
 
+> **Lesson 1 branch.** The minimal version: CRUD on products, with filter, sort and
+> pagination on `list_products`. No tests and no authentication; those come in later lessons.
+
 Stack: Java 25, Spring Boot 4.1, Spring AI 2.0 (MCP server, WebMVC, streamable HTTP),
-Spring Data JPA / Hibernate, PostgreSQL (docker compose), Lombok.
+Spring Data JPA / Hibernate, Liquibase, PostgreSQL (docker compose), Lombok.
 
 ## Architecture
 
@@ -47,15 +50,6 @@ schema is created.
 
 If you ran an older version of this project whose schema was created by Hibernate, reset the
 database once so Liquibase can create it: `docker compose down`.
-
-## Tests
-
-```bash
-./mvnw test
-```
-
-Integration tests start PostgreSQL with Testcontainers, so Docker must be running. They connect a real MCP client over Streamable HTTP; see
-[docs/TESTING-MCP.md](docs/TESTING-MCP.md) for the testing strategy.
 
 ## REST API — `/api/products`
 
