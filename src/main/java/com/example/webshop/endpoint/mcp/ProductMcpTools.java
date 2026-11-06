@@ -1,5 +1,6 @@
 package com.example.webshop.endpoint.mcp;
 
+import com.example.webshop.domain.ProductType;
 import com.example.webshop.dto.CreateProductRequest;
 import com.example.webshop.dto.PageResponse;
 import com.example.webshop.dto.ProductFilter;
@@ -18,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductMcpTools {
 
-    private static final List<String> SORTABLE = List.of("id", "name", "price", "active", "createdAt", "updatedAt");
+    private static final List<String> SORTABLE = List.of("id", "name", "price", "productType", "active", "createdAt", "updatedAt");
 
     private final ProductService productService;
     private final McpSortHelper sortHelper;
@@ -35,7 +36,7 @@ public class ProductMcpTools {
     public PageResponse<ProductResponse> listProducts(
             @McpToolParam(description = "Filters, all optional and combined with AND", required = false) ProductListFilter filter,
             @McpToolParam(description = "Sort orders in priority order, each with its own direction. "
-                    + "property: one of id, name, price, active, createdAt, updatedAt. Default id ASC", required = false) List<SortOrder> sort,
+                    + "property: one of id, name, price, productType, active, createdAt, updatedAt. Default id ASC", required = false) List<SortOrder> sort,
             @McpToolParam(description = "Zero-based page and page size (1-100). Default page 0, size 20", required = false) Pagination pagination) {
         return McpToolErrors.translating(() -> productService.findAll(
                 filter == null ? ProductFilter.empty() : filter.toProductFilter(),
@@ -56,9 +57,10 @@ public class ProductMcpTools {
             @McpToolParam(description = "Product name") String name,
             @McpToolParam(description = "Product description", required = false) String description,
             @McpToolParam(description = "Price in EUR with up to 2 decimals") BigDecimal price,
+            @McpToolParam(description = "Product category") ProductType productType,
             @McpToolParam(description = "Whether the product is visible/sellable in the shop") boolean active) {
         return McpToolErrors.translating(() -> productService.create(
-                new CreateProductRequest(name, description, price, active)));
+                new CreateProductRequest(name, description, price, productType, active)));
     }
 
     @McpTool(name = "update_product",
@@ -69,9 +71,10 @@ public class ProductMcpTools {
             @McpToolParam(description = "Product name") String name,
             @McpToolParam(description = "Product description", required = false) String description,
             @McpToolParam(description = "Price in EUR with up to 2 decimals") BigDecimal price,
+            @McpToolParam(description = "Product category") ProductType productType,
             @McpToolParam(description = "Whether the product is visible/sellable in the shop") boolean active) {
         return McpToolErrors.translating(() -> productService.update(id,
-                new UpdateProductRequest(name, description, price, active)));
+                new UpdateProductRequest(name, description, price, productType, active)));
     }
 
     @McpTool(name = "delete_product",

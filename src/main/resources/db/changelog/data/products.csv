@@ -1,21 +1,21 @@
-name;description;price;active
-Classic T-Shirt;100% cotton t-shirt, red, size M;19.99;true
-V-Neck T-Shirt;Organic cotton t-shirt, navy, size L;24.90;true
-Hoodie;Heavyweight cotton hoodie, grey, size L;49.00;true
-Rain Jacket;Waterproof breathable jacket, black, size M;129.00;true
-Wool Beanie;Merino wool beanie, one size;17.50;true
-Running Shoes;Lightweight running shoes, size 42;89.90;true
-Trail Running Shoes;Grippy trail shoes with rock plate, size 43;139.00;true
-Leather Sneakers;White leather sneakers, size 41;99.00;false
-Running Socks;Cushioned running socks, pack of 3;14.99;true
-Yoga Mat;Non-slip yoga mat, 6 mm, purple;34.95;true
-Coffee Mug;Ceramic coffee mug, 350 ml;9.50;true
-Travel Mug;Insulated stainless steel travel mug, 450 ml;22.00;true
-Espresso Cups;Set of 4 porcelain espresso cups;27.80;true
-French Press;Glass coffee French press, 1 l;31.90;false
-Coffee Grinder;Electric burr coffee grinder;79.00;true
-Water Bottle;BPA-free sports water bottle, 750 ml;12.90;true
-Backpack;Laptop backpack, 25 l, water resistant;69.00;true
-Wireless Headphones;Over-ear noise cancelling headphones;249.00;true
-Bluetooth Speaker;Portable waterproof bluetooth speaker;59.99;false
-Smart Watch;Fitness smart watch with GPS and heart rate;299.00;true
+name;description;price;product_type;active
+Classic T-Shirt;100% cotton t-shirt, red, size M;19.99;CLOTHING;true
+V-Neck T-Shirt;Organic cotton t-shirt, navy, size L;24.90;CLOTHING;true
+Hoodie;Heavyweight cotton hoodie, grey, size L;49.00;CLOTHING;true
+Rain Jacket;Waterproof breathable jacket, black, size M;129.00;CLOTHING;true
+Wool Beanie;Merino wool beanie, one size;17.50;CLOTHING;true
+Running Shoes;Lightweight running shoes, size 42;89.90;SPORTS;true
+Trail Running Shoes;Grippy trail shoes with rock plate, size 43;139.00;SPORTS;true
+Leather Sneakers;White leather sneakers, size 41;99.00;CLOTHING;false
+Running Socks;Cushioned running socks, pack of 3;14.99;SPORTS;true
+Yoga Mat;Non-slip yoga mat, 6 mm, purple;34.95;SPORTS;true
+Coffee Mug;Ceramic coffee mug, 350 ml;9.50;HOME_AND_KITCHEN;true
+Travel Mug;Insulated stainless steel travel mug, 450 ml;22.00;HOME_AND_KITCHEN;true
+Espresso Cups;Set of 4 porcelain espresso cups;27.80;HOME_AND_KITCHEN;true
+French Press;Glass coffee French press, 1 l;31.90;HOME_AND_KITCHEN;false
+Coffee Grinder;Electric burr coffee grinder;79.00;HOME_AND_KITCHEN;true
+Water Bottle;BPA-free sports water bottle, 750 ml;12.90;SPORTS;true
+Backpack;Laptop backpack, 25 l, water resistant;69.00;ACCESSORIES;true
+Wireless Headphones;Over-ear noise cancelling headphones;249.00;ELECTRONICS;true
+Bluetooth Speaker;Portable waterproof bluetooth speaker;59.99;ELECTRONICS;false
+Smart Watch;Fitness smart watch with GPS and heart rate;299.00;ELECTRONICS;true

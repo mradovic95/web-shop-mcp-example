@@ -18,5 +18,8 @@ databaseChangeLog:
                   name: price
                   type: NUMERIC
               - column:
+                  name: product_type
+                  type: STRING
+              - column:
                   name: active
                   type: BOOLEAN

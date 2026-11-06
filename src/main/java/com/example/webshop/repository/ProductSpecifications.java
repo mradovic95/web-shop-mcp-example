@@ -1,6 +1,7 @@
 package com.example.webshop.repository;
 
 import com.example.webshop.domain.Product;
+import com.example.webshop.domain.ProductType;
 import com.example.webshop.dto.ProductFilter;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -24,6 +25,7 @@ public final class ProductSpecifications {
         List<Specification<Product>> specs = new ArrayList<>();
         addIfPresent(specs, textContains(filter.query()));
         addIfPresent(specs, nameContains(filter.name()));
+        addIfPresent(specs, hasProductType(filter.productType()));
         addIfPresent(specs, priceAtLeast(filter.minPrice()));
         addIfPresent(specs, priceAtMost(filter.maxPrice()));
         addIfPresent(specs, isActive(filter.active()));
@@ -48,6 +50,11 @@ public final class ProductSpecifications {
         }
         String pattern = likePattern(name);
         return (root, query, cb) -> cb.like(cb.lower(root.get("name")), pattern, ESCAPE);
+    }
+
+    public static Specification<Product> hasProductType(ProductType productType) {
+        return productType == null ? null
+                : (root, query, cb) -> cb.equal(root.get("productType"), productType);
     }
 
     public static Specification<Product> priceAtLeast(BigDecimal min) {

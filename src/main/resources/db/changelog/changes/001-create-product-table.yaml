@@ -28,6 +28,11 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
+                  name: product_type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
                   name: active
                   type: BOOLEAN
                   constraints:

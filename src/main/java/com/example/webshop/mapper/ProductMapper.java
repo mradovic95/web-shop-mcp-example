@@ -14,6 +14,7 @@ public class ProductMapper {
                 .name(request.name())
                 .description(request.description())
                 .price(request.price())
+                .productType(request.productType())
                 .active(request.active())
                 .build();
     }
@@ -23,6 +24,7 @@ public class ProductMapper {
                 .name(request.name())
                 .description(request.description())
                 .price(request.price())
+                .productType(request.productType())
                 .active(request.active())
                 .build();
     }
@@ -33,6 +35,7 @@ public class ProductMapper {
                 product.getName(),
                 product.getDescription(),
                 product.getPrice(),
+                product.getProductType(),
                 product.isActive(),
                 product.getCreatedAt(),
                 product.getUpdatedAt()

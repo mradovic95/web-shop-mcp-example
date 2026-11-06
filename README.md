@@ -55,11 +55,12 @@ database once so Liquibase can create it: `docker compose down`.
 
 ```bash
 curl localhost:8080/api/products
+curl 'localhost:8080/api/products?productType=ELECTRONICS&maxPrice=300&sort=price,asc'
 curl localhost:8080/api/products/1
 curl -X POST localhost:8080/api/products -H 'Content-Type: application/json' \
-  -d '{"name":"Cap","price":12.50,"active":true}'
+  -d '{"name":"Cap","price":12.50,"productType":"CLOTHING","active":true}'
 curl -X PUT localhost:8080/api/products/4 -H 'Content-Type: application/json' \
-  -d '{"name":"Cap","price":14.00,"active":true}'
+  -d '{"name":"Cap","price":14.00,"productType":"CLOTHING","active":true}'
 curl -X DELETE localhost:8080/api/products/4
 ```
 

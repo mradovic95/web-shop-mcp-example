@@ -1,5 +1,6 @@
 package com.example.webshop.dto;
 
+import com.example.webshop.domain.ProductType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ public record UpdateProductRequest(
         @NotBlank @Size(max = 255) String name,
         @Size(max = 2000) String description,
         @NotNull @DecimalMin("0.00") @Digits(integer = 10, fraction = 2) BigDecimal price,
+        @NotNull ProductType productType,
         boolean active
 ) {
 }

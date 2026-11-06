@@ -1,5 +1,6 @@
 package com.example.webshop.dto;
 
+import com.example.webshop.domain.ProductType;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,6 +10,7 @@ import java.time.Instant;
 public record ProductFilter(
         String query,
         String name,
+        ProductType productType,
         @PositiveOrZero BigDecimal minPrice,
         @PositiveOrZero BigDecimal maxPrice,
         Boolean active,
@@ -17,6 +19,6 @@ public record ProductFilter(
 ) {
 
     public static ProductFilter empty() {
-        return new ProductFilter(null, null, null, null, null, null, null);
+        return new ProductFilter(null, null, null, null, null, null, null, null);
     }
 }
