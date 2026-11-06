@@ -3,9 +3,37 @@ databaseChangeLog:
       id: 002-seed-products
       author: webshop
       changes:
+        # Older catalog with fixed timestamps, so createdFrom/createdTo filters have something to find
         - loadData:
             tableName: product
             file: db/changelog/data/products.csv
+            separator: ;
+            columns:
+              - column:
+                  name: name
+                  type: STRING
+              - column:
+                  name: description
+                  type: STRING
+              - column:
+                  name: price
+                  type: NUMERIC
+              - column:
+                  name: product_type
+                  type: STRING
+              - column:
+                  name: active
+                  type: BOOLEAN
+              - column:
+                  name: created_at
+                  type: DATETIME
+              - column:
+                  name: updated_at
+                  type: DATETIME
+        # New arrivals get the default CURRENT_TIMESTAMP, so they always count as "added this month"
+        - loadData:
+            tableName: product
+            file: db/changelog/data/new-arrivals.csv
             separator: ;
             columns:
               - column:

@@ -1,21 +1,51 @@
-name;description;price;product_type;active
-Classic T-Shirt;100% cotton t-shirt, red, size M;19.99;CLOTHING;true
-V-Neck T-Shirt;Organic cotton t-shirt, navy, size L;24.90;CLOTHING;true
-Hoodie;Heavyweight cotton hoodie, grey, size L;49.00;CLOTHING;true
-Rain Jacket;Waterproof breathable jacket, black, size M;129.00;CLOTHING;true
-Wool Beanie;Merino wool beanie, one size;17.50;CLOTHING;true
-Running Shoes;Lightweight running shoes, size 42;89.90;SPORTS;true
-Trail Running Shoes;Grippy trail shoes with rock plate, size 43;139.00;SPORTS;true
-Leather Sneakers;White leather sneakers, size 41;99.00;CLOTHING;false
-Running Socks;Cushioned running socks, pack of 3;14.99;SPORTS;true
-Yoga Mat;Non-slip yoga mat, 6 mm, purple;34.95;SPORTS;true
-Coffee Mug;Ceramic coffee mug, 350 ml;9.50;HOME_AND_KITCHEN;true
-Travel Mug;Insulated stainless steel travel mug, 450 ml;22.00;HOME_AND_KITCHEN;true
-Espresso Cups;Set of 4 porcelain espresso cups;27.80;HOME_AND_KITCHEN;true
-French Press;Glass coffee French press, 1 l;31.90;HOME_AND_KITCHEN;false
-Coffee Grinder;Electric burr coffee grinder;79.00;HOME_AND_KITCHEN;true
-Water Bottle;BPA-free sports water bottle, 750 ml;12.90;SPORTS;true
-Backpack;Laptop backpack, 25 l, water resistant;69.00;ACCESSORIES;true
-Wireless Headphones;Over-ear noise cancelling headphones;249.00;ELECTRONICS;true
-Bluetooth Speaker;Portable waterproof bluetooth speaker;59.99;ELECTRONICS;false
-Smart Watch;Fitness smart watch with GPS and heart rate;299.00;ELECTRONICS;true
+name;description;price;product_type;active;created_at;updated_at
+Classic T-Shirt;100% cotton t-shirt, red, size M;19.99;CLOTHING;true;2025-02-03 09:15:00;2025-02-03 09:15:00
+V-Neck T-Shirt;Organic cotton t-shirt, navy, size L;24.90;CLOTHING;true;2025-02-03 09:20:00;2025-06-11 14:02:00
+Hoodie;Heavyweight cotton hoodie, grey, size L;49.00;CLOTHING;true;2025-03-18 11:40:00;2025-03-18 11:40:00
+Rain Jacket;Waterproof breathable jacket, black, size M;129.00;CLOTHING;true;2025-04-07 08:05:00;2025-10-21 16:30:00
+Wool Beanie;Merino wool beanie, one size;17.50;CLOTHING;true;2025-10-14 10:00:00;2025-10-14 10:00:00
+Leather Sneakers;White leather sneakers, size 41;99.00;CLOTHING;false;2025-05-22 13:25:00;2026-01-09 09:00:00
+Denim Jeans;Slim fit stretch denim jeans, dark blue, size 32;59.00;CLOTHING;true;2025-08-30 15:10:00;2025-08-30 15:10:00
+Winter Gloves;Fleece lined winter gloves, size M;15.00;CLOTHING;false;2025-11-02 12:00:00;2026-04-01 08:45:00
+Running Shoes;Lightweight running shoes, size 42;89.90;SPORTS;true;2025-03-01 10:30:00;2025-03-01 10:30:00
+Trail Running Shoes;Grippy trail shoes with rock plate, size 43;139.00;SPORTS;true;2025-09-12 09:00:00;2025-09-12 09:00:00
+Running Socks;Cushioned running socks, pack of 3;14.99;SPORTS;true;2025-03-01 10:35:00;2025-03-01 10:35:00
+Yoga Mat;Non-slip yoga mat, 6 mm, purple;34.95;SPORTS;true;2025-06-19 17:20:00;2025-06-19 17:20:00
+Water Bottle;BPA-free sports water bottle, 750 ml;12.90;SPORTS;true;2025-06-19 17:25:00;2025-06-19 17:25:00
+Shoelaces;Flat replacement shoelaces, 120 cm, white;3.50;SPORTS;true;2025-07-04 11:00:00;2025-07-04 11:00:00
+Coffee Mug;Ceramic coffee mug, 350 ml;9.50;HOME_AND_KITCHEN;true;2025-01-20 08:00:00;2025-01-20 08:00:00
+Travel Mug;Insulated stainless steel travel mug, 450 ml;22.00;HOME_AND_KITCHEN;true;2025-01-20 08:05:00;2025-01-20 08:05:00
+Espresso Cups;Set of 4 porcelain espresso cups;27.80;HOME_AND_KITCHEN;true;2025-04-28 14:00:00;2025-04-28 14:00:00
+French Press;Glass coffee French press, 1 l;31.90;HOME_AND_KITCHEN;false;2025-04-28 14:10:00;2025-12-15 10:20:00
+Coffee Grinder;Electric burr coffee grinder;79.00;HOME_AND_KITCHEN;true;2025-09-05 09:45:00;2025-09-05 09:45:00
+Tea Towel;Linen tea towel, striped, 50 x 70 cm;4.50;HOME_AND_KITCHEN;true;2025-07-15 16:00:00;2025-07-15 16:00:00
+Cutting Board;Bamboo cutting board with juice groove;19.90;HOME_AND_KITCHEN;true;2026-02-10 10:10:00;2026-02-10 10:10:00
+Wireless Headphones;Over-ear noise cancelling headphones;249.00;ELECTRONICS;true;2025-05-05 10:00:00;2025-11-28 09:00:00
+Bluetooth Speaker;Portable waterproof bluetooth speaker;59.99;ELECTRONICS;false;2025-05-05 10:05:00;2026-03-03 13:30:00
+Smart Watch;Fitness smart watch with GPS and heart rate;299.00;ELECTRONICS;true;2025-10-01 09:00:00;2025-10-01 09:00:00
+Wireless Mouse;Silent wireless mouse, 2.4 GHz, black;24.90;ELECTRONICS;true;2025-08-08 11:30:00;2025-08-08 11:30:00
+USB-C Charger;65 W USB-C wall charger with two ports;39.00;ELECTRONICS;true;2025-11-20 15:00:00;2025-11-20 15:00:00
+Power Bank;10000 mAh power bank with USB-C;29.99;ELECTRONICS;true;2026-01-15 12:00:00;2026-01-15 12:00:00
+HDMI Cable;HDMI 2.1 cable, 2 m;7.99;ELECTRONICS;true;2025-08-08 11:35:00;2025-08-08 11:35:00
+Webcam;1080p webcam with built in microphone;44.50;ELECTRONICS;false;2025-12-01 10:00:00;2026-05-20 08:30:00
+Mechanical Keyboard;Mechanical keyboard, brown switches, US layout;89.00;ELECTRONICS;true;2026-03-12 14:45:00;2026-03-12 14:45:00
+Sourdough Baking Guide;Paperback guide to baking sourdough at home, 240 pages;22.90;BOOKS;true;2025-02-25 10:00:00;2025-02-25 10:00:00
+Mountain Trails Guidebook;Hiking guidebook with 50 marked mountain trails;18.00;BOOKS;true;2025-06-02 09:30:00;2025-06-02 09:30:00
+Backend Patterns Handbook;Hardcover handbook on backend architecture patterns;44.00;BOOKS;true;2025-09-25 13:00:00;2025-09-25 13:00:00
+Space Picture Book;Illustrated picture book about planets for kids aged 4 to 7;12.50;BOOKS;true;2026-04-08 10:00:00;2026-04-08 10:00:00
+Bookmark;Leather bookmark with tassel;1.99;BOOKS;true;2025-02-25 10:05:00;2025-02-25 10:05:00
+Building Blocks Set;Building blocks set, 500 pieces, ages 6 and up;34.99;TOYS;true;2025-11-11 11:11:00;2025-11-11 11:11:00
+Jigsaw Puzzle;1000 piece jigsaw puzzle, mountain lake;18.50;TOYS;true;2025-12-05 16:00:00;2025-12-05 16:00:00
+Plush Bear;Soft plush teddy bear, 30 cm;14.90;TOYS;true;2025-03-30 12:00:00;2025-03-30 12:00:00
+Remote Control Car;Remote control car with rechargeable battery;49.00;TOYS;false;2025-07-21 10:00:00;2026-02-14 09:00:00
+Sticker Pack;Pack of 50 waterproof vinyl stickers;2.50;TOYS;true;2025-07-21 10:05:00;2025-07-21 10:05:00
+Lip Balm;Beeswax lip balm, unscented;3.90;BEAUTY;true;2025-01-28 09:00:00;2025-01-28 09:00:00
+Face Cream;Daily moisturising face cream, 50 ml;24.00;BEAUTY;true;2025-05-14 10:30:00;2025-05-14 10:30:00
+Shampoo;Gentle shampoo for daily use, 250 ml;8.90;BEAUTY;true;2025-05-14 10:35:00;2025-05-14 10:35:00
+Perfume;Eau de parfum, citrus and cedar, 50 ml;79.00;BEAUTY;true;2025-12-10 18:00:00;2025-12-10 18:00:00
+Nail Polish;Nail polish, cherry red, 10 ml;4.99;BEAUTY;false;2025-08-19 14:00:00;2026-01-30 11:00:00
+Backpack;Laptop backpack, 25 l, water resistant;69.00;ACCESSORIES;true;2025-04-15 09:00:00;2025-04-15 09:00:00
+Leather Belt;Brown leather belt with steel buckle;29.00;ACCESSORIES;true;2025-09-09 10:00:00;2025-09-09 10:00:00
+Sunglasses;Polarised sunglasses with UV400 lenses;45.00;ACCESSORIES;true;2026-05-02 12:30:00;2026-05-02 12:30:00
+Phone Case;Shockproof silicone phone case, black;14.99;ACCESSORIES;true;2025-10-27 15:15:00;2025-10-27 15:15:00
+Keychain;Stainless steel keychain with bottle opener;3.20;ACCESSORIES;true;2025-10-27 15:20:00;2025-10-27 15:20:00

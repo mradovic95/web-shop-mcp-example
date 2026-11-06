@@ -45,7 +45,7 @@ Spring Boot's docker compose support starts PostgreSQL from `compose.yaml` autom
 (dev-time only — when running the packaged jar, configure `spring.datasource.*` yourself).
 
 `spring-boot:run` activates the `dev` profile, which enables the Liquibase `dev` context and
-loads 20 sample products (`db/changelog/data/products.csv`). Without the `dev` profile only the
+loads 60 sample products across all product types (`db/changelog/data/products.csv` with fixed dates, plus `new-arrivals.csv` stamped with the current time). Without the `dev` profile only the
 schema is created.
 
 If you ran an older version of this project whose schema was created by Hibernate, reset the
