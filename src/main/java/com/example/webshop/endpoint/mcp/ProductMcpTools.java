@@ -26,13 +26,15 @@ public class ProductMcpTools {
     private final McpPageHelper pageHelper;
 
     @McpTool(name = "list_products",
+            title = "List products",
             description = """
                     Search the web shop catalog. Takes three optional objects: filter (all fields optional, \
                     combined with AND), sort (list of {property, direction} in priority order, so each field can \
                     have its own direction; default id ASC) and pagination ({page, size}, default page 0, size 20, \
                     max size 100). The response includes content plus page, size, totalElements, totalPages, \
                     first and last; request further pages with pagination.page. Prices are in EUR.""",
-            annotations = @McpTool.McpAnnotations(readOnlyHint = true))
+            annotations = @McpTool.McpAnnotations(title = "List products", readOnlyHint = true, destructiveHint = false,
+                    openWorldHint = false))
     public PageResponse<ProductResponse> listProducts(
             @McpToolParam(description = "Filters, all optional and combined with AND", required = false) ProductListFilter filter,
             @McpToolParam(description = "Sort orders in priority order, each with its own direction. "
@@ -44,15 +46,19 @@ public class ProductMcpTools {
     }
 
     @McpTool(name = "get_product",
+            title = "Get product",
             description = "Get a single product by its numeric id.",
-            annotations = @McpTool.McpAnnotations(readOnlyHint = true))
+            annotations = @McpTool.McpAnnotations(title = "Get product", readOnlyHint = true, destructiveHint = false,
+                    openWorldHint = false))
     public ProductResponse getProduct(
             @McpToolParam(description = "Product id") Long id) {
         return McpToolErrors.translating(() -> productService.findById(id));
     }
 
     @McpTool(name = "create_product",
-            description = "Create a new product.")
+            title = "Create product",
+            description = "Create a new product.",
+            annotations = @McpTool.McpAnnotations(title = "Create product", destructiveHint = false, openWorldHint = false))
     public ProductResponse createProduct(
             @McpToolParam(description = "Product name") String name,
             @McpToolParam(description = "Product description", required = false) String description,
@@ -64,8 +70,10 @@ public class ProductMcpTools {
     }
 
     @McpTool(name = "update_product",
+            title = "Update product",
             description = "Replace all fields of an existing product identified by id. Call get_product first to keep unchanged values.",
-            annotations = @McpTool.McpAnnotations(idempotentHint = true))
+            annotations = @McpTool.McpAnnotations(title = "Update product", destructiveHint = false, idempotentHint = true,
+                    openWorldHint = false))
     public ProductResponse updateProduct(
             @McpToolParam(description = "Id of the product to update") Long id,
             @McpToolParam(description = "Product name") String name,
@@ -78,8 +86,10 @@ public class ProductMcpTools {
     }
 
     @McpTool(name = "delete_product",
+            title = "Delete product",
             description = "Permanently delete a product by id.",
-            annotations = @McpTool.McpAnnotations(destructiveHint = true, idempotentHint = true))
+            annotations = @McpTool.McpAnnotations(title = "Delete product", destructiveHint = true, idempotentHint = true,
+                    openWorldHint = false))
     public String deleteProduct(
             @McpToolParam(description = "Id of the product to delete") Long id) {
         return McpToolErrors.translating(() -> {
