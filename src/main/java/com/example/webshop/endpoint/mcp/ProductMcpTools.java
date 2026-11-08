@@ -72,7 +72,7 @@ public class ProductMcpTools {
     @McpTool(name = "update_product",
             title = "Update product",
             description = "Replace all fields of an existing product identified by id. Call get_product first to keep unchanged values.",
-            annotations = @McpTool.McpAnnotations(title = "Update product", destructiveHint = false, idempotentHint = true,
+            annotations = @McpTool.McpAnnotations(title = "Update product", destructiveHint = true, idempotentHint = true,
                     openWorldHint = false))
     public ProductResponse updateProduct(
             @McpToolParam(description = "Id of the product to update") Long id,
